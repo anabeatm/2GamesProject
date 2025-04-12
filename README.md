@@ -5,7 +5,9 @@ Dois jogos simples, desenvolvidos durante as aulas de Programação Orientada a 
 ## 📚 Sobre
 
 Este projeto contém dois jogos simples implementados em Java, abordando conceitos como:
-- Classes e Objetos
+- Classes e Objetos;
+- Construtores;
+- Instâncias.
 
 ## 🕹️ Jogos incluídos
 1. **Caça palavras**
