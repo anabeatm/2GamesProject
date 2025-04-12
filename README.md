@@ -15,5 +15,4 @@ Este projeto contém dois jogos simples implementados em Java, abordando conceit
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/2GamesProject.git
-
+   git clone https://github.com/anabeatm/2GamesProject
