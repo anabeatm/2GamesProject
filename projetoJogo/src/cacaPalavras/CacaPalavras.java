@@ -14,7 +14,7 @@ public class CacaPalavras {
         String palavraEscolhidaIndex = arrayPalavras[random.nextInt(arrayPalavras.length)];
 
         while(true) {
-            Tabuleiro(palavraEscolhidaIndex);
+            tabuleiro(palavraEscolhidaIndex);
 
             System.out.println("Digite seu palpite ou 'dica' ou 'sair': ");
             String entrada = in.nextLine().toLowerCase();
@@ -32,10 +32,9 @@ public class CacaPalavras {
                 break;
             }
         }
-
     }
 
-    public static int[][] Tabuleiro(String palavraEscolhida) {
+    public static void tabuleiro(String palavraEscolhida) {
         Random random = new Random();
         int colunas = Math.max(palavraEscolhida.length(), 3);
         int[][] tabuleiro = new int[3][colunas];
@@ -62,8 +61,5 @@ public class CacaPalavras {
             }
             System.out.println();
         }
-
-        return tabuleiro;
     }
-
 }
