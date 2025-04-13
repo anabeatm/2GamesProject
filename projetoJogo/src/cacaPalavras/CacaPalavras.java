@@ -39,6 +39,7 @@ public class CacaPalavras {
         Random random = new Random();
         int colunas = Math.max(palavraEscolhida.length(), 3);
         int[][] tabuleiro = new int[3][colunas];
+
         for(int i = 0; i < tabuleiro.length; i++) {
             for(int c = 0; c < tabuleiro[i].length; c++) {
                 tabuleiro[i][c] = (char) ('a' + random.nextInt(26));
