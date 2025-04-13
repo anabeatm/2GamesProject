@@ -5,7 +5,7 @@ public class JogoDasPalavras {
 
     private String[] arrayPalavras;
     private String palavraEscolhida;
-    private String entrada;
+//    private String entrada;
 
     public JogoDasPalavras() {
         arrayPalavras = new String[]{"banana", "computador", "engenharia", "gato", "python"};
@@ -31,18 +31,16 @@ public class JogoDasPalavras {
         return "A palavra começa com '" + primeiraLetra + "' e termina com '" + ultimaLetra + "'.";
     }
 
-    public void verificarResposta() {
-        this.entrada = entrada;
-        while (true) {
-            if (entrada.equals("dica")) {
-                System.out.println(darDica());
-            } else if (entrada.equals("sair")) {
-                System.out.println("Você desistiu :( ...");
-                break;
-            } else if (entrada.equals(palavraEscolhida)) {
-                System.out.println("Você ganhou!!");
-                break;
-            }
+    public boolean verificarResposta(String entrada) {
+        if (entrada.equals("dica")) {
+            System.out.println(this.darDica());
+            return true;
+        } else if (entrada.equals("sair")) {
+            System.out.println("Você desistiu :( ...");
+            return false;
+        } else {
+            System.out.println("Você ganhou!!");
+            return false;
         }
     }
 }

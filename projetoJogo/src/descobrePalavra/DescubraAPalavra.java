@@ -1,7 +1,6 @@
 package descobrePalavra;
 
 import poo.JogoDasPalavras;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -16,15 +15,14 @@ public class DescubraAPalavra {
 
         Scanner in = new Scanner(System.in);
         JogoDasPalavras jogo = new JogoDasPalavras();
-
         jogo.sortearPalavra();
+        desordenandoPalavraEscolhida(jogo.getPalavraEscolhida());
+        String entrada = "";
 
-        String palavraDesordenada = desordenandoPalavraEscolhida(jogo.getPalavraEscolhida());
-        System.out.println(palavraDesordenada);
-        System.out.println("Digite seu palpite ou 'dica' ou 'sair': ");
-        String entrada = in.nextLine();
-        jogo.verificarResposta();
-
+        do {
+            System.out.println("Digite seu palpite ou 'dica' ou 'sair': ");
+            entrada = in.nextLine();
+        } while(jogo.verificarResposta(entrada));
 
     }
 

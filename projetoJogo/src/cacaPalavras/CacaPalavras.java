@@ -1,65 +1,85 @@
 package cacaPalavras;
 import java.util.Random;
 import java.util.Scanner;
+import poo.JogoDasPalavras;
 
 public class CacaPalavras {
     public static void main(String[] args) {
-        String[] arrayPalavras = {"banana", "computador", "engenharia", "gato", "python"};
-        cacandoPalavra(arrayPalavras);
-
-    }
-    public static void cacandoPalavra(String[] arrayPalavras) {
+//        String[] arrayPalavras = {"banana", "computador", "engenharia", "gato", "python"};
+//        cacandoPalavra(arrayPalavras);
         Random random = new Random();
+        cacandoPalavra();
+    }
+    public static void cacandoPalavra() {
+        Random random = new Random();
+
+        JogoDasPalavras jogo = new JogoDasPalavras();
         Scanner in = new Scanner(System.in);
-        String palavraEscolhidaIndex = arrayPalavras[random.nextInt(arrayPalavras.length)];
+        String palavraEscolhida = jogo.sortearPalavra();
+        String entrada = "";
+//        String palavraEscolhidaIndex = arrayPalavras[random.nextInt(arrayPalavras.length)];
+        char[][] tabuleiro = Criandotabuleiro(palavraEscolhida, random);
+        imprimindoTabuleiro(tabuleiro, palavraEscolhida, random);
 
-        while(true) {
-            tabuleiro(palavraEscolhidaIndex);
-
+        do {
             System.out.println("Digite seu palpite ou 'dica' ou 'sair': ");
-            String entrada = in.nextLine().toLowerCase();
+            entrada = in.nextLine();
+        } while(jogo.verificarResposta(entrada));
 
-            char primeiraLetra = palavraEscolhidaIndex.charAt(0);
-            char ultimaLetra = palavraEscolhidaIndex.charAt(palavraEscolhidaIndex.length() - 1);
-
-            if(entrada.equals("dica")){
-                System.out.println("A palavra começa com '" + primeiraLetra + "' e termina com '" + ultimaLetra + "'.");
-            } else if(entrada.equals("sair")) {
-                System.out.println("Você desistiu :( ...");
-                break;
-            } else if (entrada.equals(palavraEscolhidaIndex)) {
-                System.out.println("Você ganhou!!");
-                break;
-            }
-        }
+//        while(true) {
+//            tabuleiro(palavraEscolhida);
+//
+//            System.out.println("Digite seu palpite ou 'dica' ou 'sair': ");
+//            String entrada = in.nextLine().toLowerCase();
+//
+//            char primeiraLetra = palavraEscolhida.charAt(0);
+//            char ultimaLetra = palavraEscolhida.charAt(palavraEscolhida.length() - 1);
+//
+//            if(entrada.equals("dica")){
+//                System.out.println("A palavra começa com '" + primeiraLetra + "' e termina com '" + ultimaLetra + "'.");
+//            } else if(entrada.equals("sair")) {
+//                System.out.println("Você desistiu :( ...");
+//                break;
+//            } else if (entrada.equals(palavraEscolhida)) {
+//                System.out.println("Você ganhou!!");
+//                break;
+//            }
+//        }
     }
 
-    public static void tabuleiro(String palavraEscolhida) {
-        Random random = new Random();
-        int colunas = Math.max(palavraEscolhida.length(), 3);
-        int[][] tabuleiro = new int[3][colunas];
+    public static char[][] Criandotabuleiro(String palavraEscolhida, Random random) {
+        int tamanho = 10;
+//        int colunas = Math.max(palavraEscolhida.length(), 3);
 
-        for(int i = 0; i < tabuleiro.length; i++) {
-            for(int c = 0; c < tabuleiro[i].length; c++) {
-                tabuleiro[i][c] = (char) ('a' + random.nextInt(26));
+        int linhas = 10;
+        int colunas = Math.max(10, palavraEscolhida.length() + 1);
+        char[][] tabuleiro = new char[linhas][colunas];
+
+        for (int i = 0; i < linhas; i++) {
+            for (int c = 0; c < colunas; c++) {
+                tabuleiro[i][c] = (char) (97 + random.nextInt(25));
             }
         }
+        return tabuleiro;
+    }
 
-        int linha = random.nextInt(tabuleiro.length);
-        int colunaMaxima = tabuleiro[0].length - palavraEscolhida.length();
-        int coluna = random.nextInt(colunaMaxima + 1);
-        // ^ aqui defini em que direção quero que esconda a palavra
+    public static void imprimindoTabuleiro(char[][] tabuleiro, String palavraEscolhida, Random random) {
+        int tamanhoPalavraEscolhida = palavraEscolhida.length();
+        int linha = random.nextInt(10);
+        int coluna = random.nextInt(tabuleiro[0].length - tamanhoPalavraEscolhida);
 
-        for (int i = 0; i < palavraEscolhida.length(); i++) {
+
+        for (int i = 0; i < tamanhoPalavraEscolhida; i++) {
             tabuleiro[linha][coluna + i] = palavraEscolhida.charAt(i);
         }
 
         for (int i = 0; i < tabuleiro.length; i++) {
-            System.out.print("|");
+//            System.out.print("|");
             for (int j = 0; j < tabuleiro[i].length; j++) {
-                System.out.print((char) tabuleiro[i][j] + " | ");
+                System.out.print((char) tabuleiro[i][j] + " ");
             }
             System.out.println();
         }
+        System.out.println();
     }
 }
