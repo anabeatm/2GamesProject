@@ -38,9 +38,12 @@ public class JogoDasPalavras {
         } else if (entrada.equals("sair")) {
             System.out.println("Você desistiu :( ...");
             return false;
-        } else {
+        } else if (entrada.equals(this.palavraEscolhida)) {
             System.out.println("Você ganhou!!");
             return false;
+        } else {
+            System.out.println("Tente novamente!");
+            return true;
         }
     }
 }
