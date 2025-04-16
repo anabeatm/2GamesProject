@@ -21,7 +21,7 @@ public class DescubraAPalavra {
         System.out.println("Você precisa adivinhar a palavra a seguir:");
         System.out.println(palavraEmbaralhada);
 
-//        String entrada = jogo.setEntrada();
+//        String entrada = jogo.setEntrada(); --> tentei fazer algo diferente
         String entrada = "";
 
         do {
