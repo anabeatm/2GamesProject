@@ -16,7 +16,11 @@ public class DescubraAPalavra {
         Scanner in = new Scanner(System.in);
         JogoDasPalavras jogo = new JogoDasPalavras();
         jogo.sortearPalavra();
-        desordenandoPalavraEscolhida(jogo.getPalavraEscolhida());
+        
+        String palavraEmbaralhada = desordenandoPalavraEscolhida(jogo.getPalavraEscolhida());
+        System.out.println("Você precisa adivinhar a palavra a seguir:");
+        System.out.println(palavraEmbaralhada);
+        
         String entrada = "";
 
         do {
