@@ -1,5 +1,6 @@
 package poo;
 import java.util.Random;
+import java.util.Scanner;
 
 public class JogoDasPalavras {
 
@@ -23,6 +24,11 @@ public class JogoDasPalavras {
     public String getPalavraEscolhida() {
         return palavraEscolhida;
     }
+
+//    public String setEntrada() {
+//        String entrada = "";
+//        return entrada;
+//    }
 
     public String darDica() {
         char primeiraLetra = palavraEscolhida.charAt(0);
