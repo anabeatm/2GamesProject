@@ -40,7 +40,6 @@ public class DescubraAPalavra {
     public void iniciarJogo() {
         Scanner in = new Scanner(System.in);
         JogoDasPalavras jogo = new JogoDasPalavras();
-        jogo.sortearPalavra();
 
         String palavraEmbaralhada = desordenandoPalavraEscolhida(jogo.getPalavraEscolhida());
         System.out.println("Você precisa adivinhar a palavra a seguir:");

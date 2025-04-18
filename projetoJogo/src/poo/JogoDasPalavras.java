@@ -15,7 +15,7 @@ public class JogoDasPalavras {
     // utilizando o metodo sortearPalavra() no construtor, pois isso fará com que o sorteo aconteça sem
     // a necessidade de chamar o metodo nas outras classses
 
-    public void sortearPalavra() {
+    private void sortearPalavra() {
         String[] arrayPalavras = this.arrayPalavras; // -> referenciar alguma coisa da classe|metodo
         Random random = new Random();
 
