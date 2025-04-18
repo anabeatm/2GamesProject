@@ -6,29 +6,26 @@ public class JogoDasPalavras {
 
     private String[] arrayPalavras;
     private String palavraEscolhida;
-//    private String entrada;
 
-    public JogoDasPalavras() {
+    public JogoDasPalavras() { // -> construtor
         arrayPalavras = new String[]{"banana", "computador", "engenharia", "gato", "python"};
-    }
 
-    public String sortearPalavra() {
-        String[] arrayPalavras = this.arrayPalavras;
+        sortearPalavra();
+    }
+    // utilizando o metodo sortearPalavra() no construtor, pois isso fará com que o sorteo aconteça sem
+    // a necessidade de chamar o metodo nas outras classses
+
+    public void sortearPalavra() {
+        String[] arrayPalavras = this.arrayPalavras; // -> referenciar alguma coisa da classe|metodo
         Random random = new Random();
 
         palavraEscolhida = arrayPalavras[random.nextInt(arrayPalavras.length)];
-
-        return palavraEscolhida;
     }
 
     public String getPalavraEscolhida() {
         return palavraEscolhida;
     }
 
-//    public String setEntrada() {
-//        String entrada = "";
-//        return entrada;
-//    }
 
     public String darDica() {
         char primeiraLetra = palavraEscolhida.charAt(0);

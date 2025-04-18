@@ -15,11 +15,11 @@ public class CacaPalavras {
 
         JogoDasPalavras jogo = new JogoDasPalavras();
         Scanner in = new Scanner(System.in);
-        String palavraEscolhida = jogo.sortearPalavra();
+//        String palavraEscolhida = jogo.sortearPalavra();
         String entrada = "";
 //        String palavraEscolhidaIndex = arrayPalavras[random.nextInt(arrayPalavras.length)];
-        char[][] tabuleiro = Criandotabuleiro(palavraEscolhida, random);
-        imprimindoTabuleiro(tabuleiro, palavraEscolhida, random);
+        char[][] tabuleiro = Criandotabuleiro(jogo.getPalavraEscolhida(), random);
+        imprimindoTabuleiro(tabuleiro, jogo.getPalavraEscolhida(), random);
 
         do {
             System.out.println("Digite seu palpite ou 'dica' ou 'sair': ");

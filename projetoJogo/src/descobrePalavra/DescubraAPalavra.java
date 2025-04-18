@@ -12,23 +12,8 @@ public class DescubraAPalavra {
 //        String palavraDesordenada = desordenandoPalavraEscolhida(palavraEscolhida);
 //        System.out.println(palavraDesordenada);
 //        descobrindoPalavra(palavraEscolhida);
-
-        Scanner in = new Scanner(System.in);
-        JogoDasPalavras jogo = new JogoDasPalavras();
-        jogo.sortearPalavra();
-
-        String palavraEmbaralhada = desordenandoPalavraEscolhida(jogo.getPalavraEscolhida());
-        System.out.println("Você precisa adivinhar a palavra a seguir:");
-        System.out.println(palavraEmbaralhada);
-
-//        String entrada = jogo.setEntrada(); --> tentei fazer algo diferente
-        String entrada = "";
-
-        do {
-            System.out.println("Digite seu palpite ou 'dica' ou 'sair': ");
-            entrada = in.nextLine();
-        } while(jogo.verificarResposta(entrada));
-
+        DescubraAPalavra iniciar = new DescubraAPalavra();
+        iniciar.iniciarJogo();
     }
 
 //    public static String escolhendoPalavraAleatoriamente(String[] arrayPalavras) {
@@ -37,7 +22,7 @@ public class DescubraAPalavra {
 //        return arrayPalavras[random.nextInt(arrayPalavras.length)];
 //    }
 
-    public static String desordenandoPalavraEscolhida(String palavraEscolhida) {
+    private String desordenandoPalavraEscolhida(String palavraEscolhida) {
         Random random = new Random();
         char[] caracter;
         caracter = palavraEscolhida.toCharArray();
@@ -50,6 +35,23 @@ public class DescubraAPalavra {
 
         }
         return new String(caracter);
+    }
+
+    public void iniciarJogo() {
+        Scanner in = new Scanner(System.in);
+        JogoDasPalavras jogo = new JogoDasPalavras();
+        jogo.sortearPalavra();
+
+        String palavraEmbaralhada = desordenandoPalavraEscolhida(jogo.getPalavraEscolhida());
+        System.out.println("Você precisa adivinhar a palavra a seguir:");
+        System.out.println(palavraEmbaralhada);
+
+        String entrada = "";
+
+        do {
+            System.out.println("Digite seu palpite ou 'dica' ou 'sair': ");
+            entrada = in.nextLine();
+        } while(jogo.verificarResposta(entrada));
     }
 
 //    public static void descobrindoPalavra(String palavraEscolhida) {
