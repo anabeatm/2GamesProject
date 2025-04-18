@@ -12,7 +12,7 @@ public class JogoDasPalavras {
 
         sortearPalavra();
     }
-    // utilizando o metodo sortearPalavra() no construtor, pois isso fará com que o sorteo aconteça sem
+    // utilizando o metodo sortearPalavra() no construtor, pois isso fará com que o sorteio aconteça sem
     // a necessidade de chamar o metodo nas outras classses
 
     private void sortearPalavra() {
