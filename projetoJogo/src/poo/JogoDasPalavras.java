@@ -16,6 +16,7 @@ public class JogoDasPalavras {
     // a necessidade de chamar o metodo nas outras classses
 
     private void sortearPalavra() {
+        // mudando para private, pois só é utilizado nessa classe
         String[] arrayPalavras = this.arrayPalavras; // -> referenciar alguma coisa da classe|metodo
         Random random = new Random();
 
