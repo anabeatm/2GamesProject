@@ -1,6 +1,5 @@
 package poo;
 import java.util.Random;
-import java.util.Scanner;
 
 public class JogoDasPalavras {
 
@@ -20,8 +19,9 @@ public class JogoDasPalavras {
         String[] arrayPalavras = this.arrayPalavras; // -> referenciar alguma coisa da classe|metodo
         Random random = new Random();
 
-        palavraEscolhida = arrayPalavras[random.nextInt(arrayPalavras.length)];
+        this.palavraEscolhida = arrayPalavras[random.nextInt(arrayPalavras.length)];
     }
+
 
     public String getPalavraEscolhida() {
         return palavraEscolhida;
@@ -29,8 +29,9 @@ public class JogoDasPalavras {
 
 
     public String darDica() {
-        char primeiraLetra = palavraEscolhida.charAt(0);
-        char ultimaLetra = palavraEscolhida.charAt(palavraEscolhida.length() - 1);
+        getPalavraEscolhida();
+        char primeiraLetra = getPalavraEscolhida().charAt(0);
+        char ultimaLetra = getPalavraEscolhida().charAt(getPalavraEscolhida().length() - 1);
 
         return "A palavra começa com '" + primeiraLetra + "' e termina com '" + ultimaLetra + "'.";
     }
@@ -42,7 +43,7 @@ public class JogoDasPalavras {
         } else if (entrada.equals("sair")) {
             System.out.println("Você desistiu :( ...");
             return false;
-        } else if (entrada.equals(this.palavraEscolhida)) {
+        } else if (entrada.equals(this.getPalavraEscolhida())) {
             System.out.println("Você ganhou!!");
             return false;
         } else {

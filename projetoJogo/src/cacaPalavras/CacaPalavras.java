@@ -5,8 +5,10 @@ import poo.JogoDasPalavras;
 
 public class CacaPalavras {
     public static void main(String[] args) {
+
 //        String[] arrayPalavras = {"banana", "computador", "engenharia", "gato", "python"};
 //        cacandoPalavra(arrayPalavras);
+
         Random random = new Random();
         cacandoPalavra();
     }
@@ -15,9 +17,13 @@ public class CacaPalavras {
 
         JogoDasPalavras jogo = new JogoDasPalavras();
         Scanner in = new Scanner(System.in);
+
 //        String palavraEscolhida = jogo.sortearPalavra();
+
         String entrada = "";
+
 //        String palavraEscolhidaIndex = arrayPalavras[random.nextInt(arrayPalavras.length)];
+
         char[][] tabuleiro = Criandotabuleiro(jogo.getPalavraEscolhida(), random);
         imprimindoTabuleiro(tabuleiro, jogo.getPalavraEscolhida(), random);
 
@@ -45,10 +51,12 @@ public class CacaPalavras {
 //                break;
 //            }
 //        }
+
     }
 
     public static char[][] Criandotabuleiro(String palavraEscolhida, Random random) {
         int tamanho = 10;
+
 //        int colunas = Math.max(palavraEscolhida.length(), 3);
 
         int linhas = 10;
@@ -74,7 +82,6 @@ public class CacaPalavras {
         }
 
         for (int i = 0; i < tabuleiro.length; i++) {
-//            System.out.print("|");
             for (int j = 0; j < tabuleiro[i].length; j++) {
                 System.out.print((char) tabuleiro[i][j] + " ");
             }
